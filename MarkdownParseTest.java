@@ -93,6 +93,35 @@ public class MarkdownParseTest {
 
     }
 
+    @Test
+    public void testCodeSnippet1() throws IOException{
+        Graph graph = new Graph();
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("`google.com");
+        assertEquals(expected, graph.getLinks(Files.readString(Path.of("codesnippet1.md"))));
+
+    }
+
+    @Test
+    public void testCodeSnippet2() throws IOException{
+        Graph graph = new Graph();
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("b.com");
+        expected.add("a.com(())");
+        expected.add("example.com");
+        assertEquals(expected, graph.getLinks(Files.readString(Path.of("codesnippet2.md"))));
+
+    }
+
+    @Test
+    public void testCodeSnippet3() throws IOException{
+        Graph graph = new Graph();
+        ArrayList<String> expected = new ArrayList<>();
+        assertEquals(expected, graph.getLinks(Files.readString(Path.of("codesnippet3.md"))));
+
+    }
+
+
     // @Test
     // public void testGetLinks5() throws IOException{
     //     Graph graph = new Graph();
